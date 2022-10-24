@@ -1,0 +1,12 @@
+{
+    "require": {
+        "symfony/cache": "^6.1",
+        "doctrine/annotations": "^1.13",
+        "doctrine/orm": "^2.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Blog\\": "./src/models"
+        }
+    }
+}
