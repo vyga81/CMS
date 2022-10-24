@@ -1,7 +1,3 @@
-<?php 
-require_once "bootstrap.php";
-?>
-
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     
@@ -11,10 +7,10 @@ require_once "bootstrap.php";
           <a class="nav-link"  href="#"></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php"></a>
+          <a class="nav-link" href="#"></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="admin.php">Login</a>
+        <li class="nav-item pull-right ">
+          <a class="nav-link " href="<?= $prefix ?>/login">Login</a>
         </li>
         
       </ul>

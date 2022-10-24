@@ -2,32 +2,20 @@
 
 use Blog\Content;
 
-require_once "bootstrap.php";
-
-session_start();
-
 // Helper functions
 function redirect_to_root()
 {
-  header("Location: " . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH));
+  header("Location: /app6/home");
+}
+
+if (!isset($_SESSION['logged_in'])) {
+  redirect_to_root();
 }
 
 echo $error = "";
 
-// Login
-if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-  if ($_POST['username'] == 'Vygantas' && $_POST['password'] == '999') {
-    $_SESSION['logged_in'] = true;
-    $_SESSION['timeout'] = time();
-    $_SESSION['username'] = 'Vygantas';
-  } else {
-    print('<div style="color:red">Wrong username or password</div>');
-  }
-}
-
 // Logout
 if (isset($_GET['action']) and $_GET['action'] == 'logout') {
-  session_start();
   unset($_SESSION['username']);
   unset($_SESSION['password']);
   unset($_SESSION['logged_in']);
@@ -36,7 +24,7 @@ if (isset($_GET['action']) and $_GET['action'] == 'logout') {
 }
 
 
-// Add new address
+// Add new article title+content
 if (isset($_POST['headline'])) {
   if (empty($_POST['headline'])) {
     $_SESSION['message'] = 'Empty address';
@@ -54,7 +42,7 @@ if (isset($_POST['headline'])) {
   }
 }
 
-// Delete address
+// Delete article
 if (isset($_GET['delete'])) {
   $content = $entityManager->find('Blog\Content', $_GET['delete']);
   $entityManager->remove($content);
@@ -110,10 +98,10 @@ if (isset($_POST['update'])) {
 
 <body style="height: 100vh">
   <?php
-  if (!isset($_SESSION['logged_in'])) {
-
-  ?>
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
+  // if (!isset($_SESSION['logged_in'])) {
+  //   header('location: ' . $prefix . '/home')
+  ?> 
+    <!-- <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
       <div>
         <form action="" method="post">
           <div class="mb-3">
@@ -127,13 +115,8 @@ if (isset($_POST['update'])) {
           <button type="submit" class="btn btn-primary" name="login">Submit</button>
         </form>
       </div>
-    </div>
+    </div> -->
 
-  <?php
-
-  } else {
-
-  ?>
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="home">View the Page</a>
@@ -143,7 +126,7 @@ if (isset($_POST['update'])) {
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href=" ">Home</a>
+              <a class="nav-link " aria-current="page" href="?action=home ">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="?action=logout">Logout</a>
@@ -191,12 +174,13 @@ if (isset($_POST['update'])) {
 
       if (isset($_GET['update'])) {
         $content = $entityManager->find('Blog\Content', $_GET['update']);
-        print("<pre>Update Address: </pre>");
+        print("<pre>Update: </pre>");
         print("
             <form class='form-control' action='' method='POST'>
             <input type='hidden' name='id' value='{$content->getId()}'>
-            <label for='name'>Product name: </label><br>
+            <label for='name'>Title: </label><br>
             <input type='text' name='update' class='form-control' value='{$content->getTitle()}' " . ($content->getTitle() ==  "Home" ? "readonly" : "") . "><br>
+            <label for='name'>Content: </label><br>
             <textarea type='text' name='content' class='big form-control' value='{$content->getContent()}'>" . $content->getContent() . "</textarea><br>
             <input type='submit' class='btn btn-primary' name='updatable' value='Submit'>
             </form>
@@ -219,7 +203,6 @@ if (isset($_POST['update'])) {
         <textarea class="form-control" type="text" name="content" placeholder="Content text area" value=""></textarea><br>
         <input class="btn btn-primary" type="submit" value="Submit">
       </form>
-    <?php } ?>
     </div>
     <footer class="bg-light text-center text-lg-start mt-3">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">

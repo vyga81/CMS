@@ -26,6 +26,7 @@ if (isset($_GET['update'])) {
     $upd = NULL;
 }
 $prefix = '/app6';
+
 switch ($request) {
 
     case $prefix . '/':
@@ -57,6 +58,9 @@ switch ($request) {
         break;
     case $prefix . '/?id=' . $idz:
         require __DIR__ . '/src/views/home.php';
+        break;
+    case $prefix . '/login':
+        require __DIR__ . '/src/views/login.php';
         break;
 
     default:
