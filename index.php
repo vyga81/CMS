@@ -62,6 +62,9 @@ switch ($request) {
     case $prefix . '/login':
         require __DIR__ . '/src/views/login.php';
         break;
+    case $prefix . '/content' . $head . '&content=':
+        require __DIR__ . '/src/views/content.php';
+        break;
 
     default:
         http_response_code(404);

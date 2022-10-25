@@ -34,7 +34,7 @@
         </div>
     </nav>
     <div class="container">
-        <img height="800px" src="src\images\cat-404.jpg" alt="404 Cat">
+        <img height="800px" src="src\images\404_error.webp" alt="404_error">
     </div>
     <footer class="bg-light text-center text-lg-start">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
