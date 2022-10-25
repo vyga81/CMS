@@ -93,10 +93,14 @@ if (isset($_POST['update'])) {
     textarea {
       resize: none;
     }
+    .content {
+      max-width: 60%;
+      white-space: break-spaces;
+    } 
   </style>
 </head>
 
-<body style="height: 100vh">
+<body style='background: blanchedalmond'>
   <?php
   // if (!isset($_SESSION['logged_in'])) {
   //   header('location: ' . $prefix . '/home')
@@ -142,33 +146,24 @@ if (isset($_POST['update'])) {
       print("<pre>This is your Admin section " . "<br>");
       $content = $entityManager->getRepository('Blog\Content')->findAll();
       print('<table class="table">');
-      foreach ($content as $p)
-        if ($p->getId() === 1) {
-          print("<tr>"
-            . '<th scope="col">ID</th>'
-            . '<th scope="col">Title</th>'
-            . '<th scope="col">Content</th>'
-            . '<th scope="col">Action/Delete</th>'
-            . '<th scope="col">Update</th>'
-            . "</tr>"
-            . "<tr>"
-            . "<td>" . $p->getId()  . "</td>"
-            . "<td>" . $p->getTitle() . "</td>"
-            . "<td>" . $p->getContent() . "</td>"
-            . "<td>" . "</td>"
-            . "<td><a class=\"btn btn-success\" href=\"?updatable={$p->getId()}\">UPDATE♻️</a></td>"
-            . "</tr>"
-
-          );
-        } else {
+      print("<tr>"
+            . '<th>ID</th>'
+            . '<th>Title</th>'
+            . '<th class="content">Content</th>'
+            . '<th>Action/Delete</th>'
+            . '<th>Update</th>'
+            . "</tr>");
+            
+      foreach ($content as $p) {
           print("<tr>"
             . "<td>" . $p->getId()  . "</td>"
             . "<td>" . $p->getTitle() . "</td>"
-            . "<td>" . $p->getContent() . "</td>"
-            . "<td><a class='btn btn-sm btn-danger' href='?delete={$p->getId()}'>DELETE☢️</a></td>"
+            . "<td class='content'>" . $p->getContent() . "</td>"
+            . ($p->getId() === 1 ? "<td></td>" : "<td><a class='btn btn-sm btn-danger' href='?delete={$p->getId()}'>DELETE☢️</a></td>")
             . "<td><a class='btn btn-sm btn-success' href='?update={$p->getId()}'>UPDATE♻️</a></td>"
             . "</tr>");
-        }
+      }
+
       print("</table>");
       print("</pre>");
 

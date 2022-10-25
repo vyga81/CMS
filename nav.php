@@ -1,16 +1,10 @@
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg bg-light" style='background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)'>
+  <div class="container-fluid d-flex justify-content-end">
     
-    <div class="collapse navbar-collapse" >
+    <div   >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link"  href="#"></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"></a>
-        </li>
         <li class="nav-item pull-right ">
-          <a class="nav-link " href="<?= $prefix ?>/login">Login</a>
+          <a class="nav-link fs-4 font-weight" href="<?= $prefix ?>/login">Login</a>
         </li>
         
       </ul>

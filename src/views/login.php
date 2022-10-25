@@ -25,7 +25,7 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="app.css">
   </head>
-  <body class="h-100 gradient-form" style="background-color: #eee;">
+  <body style="background:blanchedalmond" >
     <!-- <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
       <div>
         <form action="" method="post">
@@ -53,9 +53,9 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
               <div class="card-body p-md-5 mx-md-4">
 
                 <div class="text-center">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                  <img src="./src/images/lotus.webp"
                     style="width: 185px;" alt="logo">
-                  <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+                  <h4 class="mt-1 mb-5 pb-1">Content Management system</h4>
                 </div>
 
                 <form action="" method="post">
@@ -72,7 +72,7 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" name="login"  >Log
+                    <button type="submit" class="btn btn-primary btn-block fa-lg  mb-3" name="login" style='background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)'  >Log
                       in</button>
                       
                     <!-- <a class="text-muted" href="#!">Forgot password?</a> -->
@@ -87,7 +87,7 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
 
               </div>
             </div>
-            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+            <div class="col-lg-6 d-flex align-items-center " style='background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)' >
               <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                 <h4 class="mb-4">We are more than just a company</h4>
                 <p class="small mb-0">Content management system</p>

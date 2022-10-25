@@ -14,14 +14,14 @@ require_once 'bootstrap.php';
     <link rel="stylesheet" href="app.css">
   </head>
   
-<body>
-  <nav class="navbar navbar-expand-lg bg-light">
+<body style='background: blanchedalmond'>
+  <nav class="navbar navbar-expand-lg bg-light" style='background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)'>
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="home"><h1>C-M-S</h1></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon" ></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup" style='background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)'>
       <div class="navbar-nav">
         <?php
 
@@ -30,13 +30,14 @@ require_once 'bootstrap.php';
                     foreach ($address as $p)
                         echo '<li> <a class="nav-link m-1" href="?id=' . $p->getId() . '">' . $p->getTitle() . '</a></li>';
                     ?>
+                    <a class="nav-link fs-4 fw-bolder" href="<?= $prefix ?>/login">Login</a>
       </div>
     </div>
   </div>
 </nav>
-    <h1>C-M-S</h1>
+    
     <?php
-    include_once 'nav.php';
+    // include_once 'nav.php';
     ?>
     <!-- <p>
       <a href="create.php" type="button" class="btn btn-success">Add new article</a>
@@ -79,12 +80,12 @@ require_once 'bootstrap.php';
  }
  
  if (isset($_GET['id'])) {
-            $add = $entityManager->getRepository('Blog\Content')->findBy(array('id' => $_GET['id']));
+            $art = $entityManager->getRepository('Blog\Content')->findBy(array('id' => $_GET['id']));
             echo '<div>';
-            foreach ($add as $z)
+            foreach ($art as $a)
                 echo "<br>"
                     . "<tr>"
-                    . "<td>" . $z->getContent() . "</td>"
+                    . "<td>" . $a->getContent() . "</td>"
                     . "</tr>"
                     . "</div>";
         }

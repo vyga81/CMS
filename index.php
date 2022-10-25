@@ -38,6 +38,9 @@ switch ($request) {
     case $prefix . '/home':
         require __DIR__ . '/src/views/home.php';
         break;
+    case '/home':
+        require __DIR__ . '/src/views/home.php';
+        break;
     case $prefix . '/home?id=' . $idz:
         require __DIR__ . '/src/views/home.php';
         break;
