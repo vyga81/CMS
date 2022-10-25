@@ -46,7 +46,7 @@ require_once 'bootstrap.php';
 
 
  <?php 
- 
+
  
  if (!isset($_GET['id'])){
  echo'<table class="table">'
