@@ -26,21 +26,7 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
     <link rel="stylesheet" href="app.css">
   </head>
   <body style="background:blanchedalmond" >
-    <!-- <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
-      <div>
-        <form action="" method="post">
-          <div class="mb-3">
-            <label class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" placeholder="username = Vygantas">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" placeholder="password = 999" required>
-          </div>
-          <button type="submit" class="btn btn-primary" name="login">Submit</button>
-        </form>
-      </div>
-    </div> -->
+    
 
 
     <!-- login template -->
@@ -72,8 +58,7 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button type="submit" class="btn btn-primary btn-block fa-lg  mb-3" name="login" style='background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)'  >Log
-                      in</button>
+                    <button type="submit" class="btn btn-primary btn-block fa-lg  mb-3" name="login" style='background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)'  >Login</button>
                       
                     <!-- <a class="text-muted" href="#!">Forgot password?</a> -->
                   </div>
